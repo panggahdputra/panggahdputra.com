@@ -7,8 +7,7 @@ googleAnalytics: '305620212'
 params:
   sidebarAbout:
     - Selamat datang di panggahdputra.com.
-    - Website pribadi ini saya susun dalam rangka mendokumentasikan hasil saya belajar bahasa pemrograman R, visualisasi data dengan R, R Markdown, blogdown, R shiny, dan lain-lain.
-    - Selamat menikmati...
+    - Website pribadi ini berisi dokumentasi hasil saya belajar R, visualisasi data dengan R, R Markdown, blogdown, R shiny, dan lain-lain.
   navlinks:
     - home: yes
       name: Galeri
