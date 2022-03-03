@@ -24,7 +24,7 @@ Hasilnya? Pesanan buku dari amazon membutuhkan waktu seminggu pengiriman dari gu
 
 Bagaimana dengan pembelian di book depository? Pesanan buku dari book depository sampai setelah penantian panjang selama 5 minggu. Jauh lebih murah dibandingkan dengan pembelian di amazon, namun harus sabar menunggu. Selain itu, saya juga harus mengurus sendiri bea masuknya, tak seperti pembelian melalui amazon yang ongkos kirimnya sudah include pembayaran dan pengurusan bea masuk.
 
-Kedua platform belanja diatas punya plus minusnya, *and the choice is yours!*
+Kedua platform belanja di atas punya plus minusnya, *and the choice is yours!*
 
 Bulan Mei 2021 (baru juga sebulan berlalu), saya khilaf lagi dengan membeli 3 buku sekaligus (agar lebih hemat ongkos kirim) melalui amazon. **Data Visualization**-nya Kieran Healy, **R for Excel Users**-nya John L. Taveras, **The Art of Statistics**-nya David Spiegelhalter mendarat tepat waktu.
 
@@ -32,7 +32,7 @@ Setelah beberapa bulan kembali ke jalan yang benar, bulan Oktober 2021 lagi-lagi
 
 > *Buku yang bagus adalah buku yang dibaca sampai selesai.*
 
-Dari buku-buku di atas, mana yang bagus dan *recommended*? Wah, saya belum punya kapasitas dan kompetensi untuk menilai kualitas suatu buku. Saya cuma bisa memberikan statement seperti kata orang-orang, *buku yang bagus adalah buku yang dibaca sampai selesai.* Apa saja buku yang dibaca, jika dibaca sampai dengan selesai, maka buku itu bagus.
+Dari buku-buku di atas, mana yang bagus dan *recommended*? Wah, saya belum punya kapasitas dan kompetensi untuk menilai kualitas suatu buku. Saya cuma bisa memberikan *statement* seperti kata orang-orang,"buku yang bagus adalah buku yang dibaca sampai selesai." Apa saja buku yang dibaca, jika dibaca sampai dengan selesai, maka buku itu bagus.
 
 Jika anda ingin belajar visualisasi data, 2 buku pertama yang saya sarankan untuk anda baca adalah **Better Data Visualisation** dan **Storytelling with Data**. Selamat berbelanja!
 
