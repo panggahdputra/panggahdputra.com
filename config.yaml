@@ -1,0 +1,24 @@
+baseurl: https://example.org/
+title: Panggah D. Putra
+theme: hugo-creative-portfolio-theme
+languageCode: en-us
+disqusShortname: ''
+googleAnalytics: ''
+params:
+  sidebarAbout:
+    - Selamat datang di panggahdputra.com.
+    - Website pribadi ini saya susun dalam rangka mendokumentasikan hasil saya belajar bahasa pemrograman R, visualisasi data dengan R, R Markdown, blogdown, R shiny, dan lain-lain.
+    - Selamat menikmati...
+  navlinks:
+    - home: yes
+      name: Galeri
+      url: gallery/
+    - name: Blog
+      url: blog/
+    - name: Tentang
+      url: about/
+  social:
+    github: https://github.com/panggahdputra
+    twitter: https://twitter.com/pghdptr
+  copyright: '&copy;2022 Panggah D. Putra'
+  style: blue

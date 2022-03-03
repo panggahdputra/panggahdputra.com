@@ -1,0 +1,75 @@
+---
+title: Barcode Plot
+author: Panggah D. Putra
+date: '2022-03-02'
+slug: barcode-plot
+categories:
+  - chart
+tags:
+  - chart
+  - gallery
+  - distribusi
+image: 'img/gallery/barcode plot-1.png'
+showonlyimage: no
+---
+<!--more-->
+
+```{r, message=FALSE}
+library(tidyverse)    # untuk manupulasi, merapikan, & visualisasi data
+```
+
+```{r}
+our_palette <-c('#e1c59a',
+                '#094568',
+                '#edce79',
+                '#e59a52',
+                '#660d20')
+```
+
+```{r}
+set.seed(2000)
+df1 = tibble(var = 'A', val = rnorm(n = 25, mean = 5.5, sd = 1.5))
+df2 = tibble(var = 'B', val = rnorm(n = 15, mean = 4.5, sd = 1.0))
+df3 = tibble(var = 'C', val = rnorm(n = 20, mean = 5.0, sd = 1.0))
+df4 = tibble(var = 'D', val = rnorm(n = 10, mean = 4.0, sd = 0.5))
+df5 = tibble(var = 'E', val = rnorm(n = 13, mean = 5.0, sd = 1.5))
+
+df <- rbind(df1, df2, df3, df4, df5) %>%
+  mutate(Variable = as_factor(var),
+         value = round(val, 2)) %>%
+  select(Variable, value)
+```
+
+```{r}
+barcode_plot <- df %>%
+  ggplot(aes(x = value,
+             y = Variable,
+             color = Variable,
+             fill = Variable)) +
+  geom_point(shape = 124,
+             size = 15,
+             alpha = .9) +
+  scale_color_manual(values = our_palette,
+                     guide = 'none') +
+  scale_fill_manual(values = our_palette,
+                    guide = 'none') +
+  scale_x_continuous(limits = c(0, 15)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = '#FFFFFF',
+                                    color = NA),
+    plot.background = element_rect(fill = '#FFFFFF',
+                                   color = '#FFFFFF')
+  )
+```
+
+```{r barcode plot, include=FALSE}
+barcode_plot
+```
+
+![](images/barcode plot-1.png)

@@ -1,0 +1,131 @@
+---
+title: Population Pyramid
+author: Panggah D. Putra
+date: '2022-03-02'
+slug: population-pyramid
+categories:
+  - chart
+tags:
+  - chart
+  - gallery
+  - distribusi
+image: 'img/gallery/pop pyramid-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data</code></pre>
+<pre class="r"><code>set.seed(2000)
+df1 = tibble(gender = &#39;Male&#39;, age = &#39;15-20&#39;,
+             value = sample((5:10), size = 1))
+df2 = tibble(gender = &#39;Male&#39;, age = &#39;21-25&#39;,
+             value = sample((10:15), size = 1))
+df3 = tibble(gender = &#39;Male&#39;, age = &#39;26-30&#39;,
+             value = sample((15:20), size = 1))
+df4 = tibble(gender = &#39;Male&#39;, age = &#39;31-35&#39;,
+             value = sample((20:25), size = 1))
+df5 = tibble(gender = &#39;Male&#39;, age = &#39;36-40&#39;,
+             value = sample((25:30), size = 1))
+df6 = tibble(gender = &#39;Male&#39;, age = &#39;41-45&#39;,
+             value = sample((30:35), size = 1))
+df7 = tibble(gender = &#39;Male&#39;, age = &#39;46-50&#39;,
+             value = sample((35:40), size = 1))
+df8 = tibble(gender = &#39;Male&#39;, age = &#39;51-55&#39;,
+             value = sample((40:45), size = 1))
+df9 = tibble(gender = &#39;Male&#39;, age = &#39;56-60&#39;,
+             value = sample((45:50), size = 1))
+df10 = tibble(gender = &#39;Female&#39;, age = &#39;15-20&#39;,
+              value = sample((5:10), size = 1))
+df11 = tibble(gender = &#39;Female&#39;, age = &#39;21-25&#39;,
+              value = sample((10:15), size = 1))
+df12 = tibble(gender = &#39;Female&#39;, age = &#39;26-30&#39;,
+              value = sample((15:20), size = 1))
+df13 = tibble(gender = &#39;Female&#39;, age = &#39;31-35&#39;,
+              value = sample((20:25), size = 1))
+df14 = tibble(gender = &#39;Female&#39;, age = &#39;36-40&#39;,
+              value = sample((25:30), size = 1))
+df15 = tibble(gender = &#39;Female&#39;, age = &#39;41-45&#39;,
+              value = sample((30:35), size = 1))
+df16 = tibble(gender = &#39;Female&#39;, age = &#39;46-50&#39;,
+              value = sample((35:40), size = 1))
+df17 = tibble(gender = &#39;Female&#39;, age = &#39;51-55&#39;,
+              value = sample((40:45), size = 1))
+df18 = tibble(gender = &#39;Female&#39;, age = &#39;56-60&#39;,
+              value = sample((45:50), size = 1))
+
+df_for_pop_pyramid &lt;- rbind(df1, df2, df3, df4, df5, df6,
+                            df7, df8, df9, df10, df11, df12,
+                            df13, df14, df15, df16, df17, df18) %&gt;%
+  mutate(age = as.factor(age))</code></pre>
+<pre class="r"><code>female_side &lt;- df_for_pop_pyramid %&gt;%
+  filter(gender == &#39;Female&#39;) %&gt;%
+  ggplot(aes(x = value,
+             y = reorder(age, desc(age)),
+             fill = gender)) +
+  geom_col(fill =  &#39;#094568&#39;) +
+  geom_text(aes(label = value),
+            hjust = 2,
+            size = 3,
+            fontface = &#39;bold&#39;,
+            color = &#39;white&#39;) +
+  scale_x_continuous(limits = c(0, 50)) +
+  theme_minimal() +
+  theme(
+    plot.title.position = &#39;plot&#39;,
+    plot.subtitle = element_text(color = &#39;#660d20&#39;,
+                                 face = &#39;bold&#39;),
+    axis.title.x = element_text(color = &#39;#660d20&#39;,
+                                face = &#39;bold&#39;),
+    axis.title.y = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_text(color = &#39;#660d20&#39;,
+                               face = &#39;bold&#39;),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#ffffff&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#ffffff&#39;,
+                                   color = &#39;#ffffff&#39;)
+  ) +
+  xlab(&#39;Female&#39;) +
+  labs(subtitle = &#39;Age&#39;)</code></pre>
+<pre class="r"><code>male_side &lt;- df_for_pop_pyramid %&gt;%
+  filter(gender == &#39;Male&#39;) %&gt;%
+  ggplot(aes(x = -value,
+             y = reorder(age, desc(age)),
+             fill = gender)) +
+  geom_col(fill = &#39;#e59a52&#39;) +
+  geom_text(aes(label = value),
+            hjust = -1,
+            size = 3,
+            fontface = &#39;bold&#39;,
+            color = &#39;white&#39;) +
+  scale_x_continuous(limits = c(-50, 0)) +
+  theme_minimal() +
+  theme(
+    axis.title.x = element_text(color = &#39;#660d20&#39;,
+                                face = &#39;bold&#39;),
+    axis.title.y = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#ffffff&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#ffffff&#39;,
+                                   color = &#39;#ffffff&#39;)
+  ) +
+  xlab(&#39;Male&#39;)</code></pre>
+<pre class="r"><code>library(patchwork) </code></pre>
+<pre class="r"><code>pop_pyramid &lt;- (male_side|female_side) +
+  plot_annotation(
+    theme = theme(
+      panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+      plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                     color = &#39;#FFFFFF&#39;)
+    ))</code></pre>
+<p><img src="images/pop%20pyramid-1.png" /></p>

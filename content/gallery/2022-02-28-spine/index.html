@@ -1,0 +1,64 @@
+---
+title: Spine
+author: Panggah D. Puta
+date: '2022-02-28'
+categories:
+  - chart
+tags:
+  - chart
+  - deviasi
+  - gallery
+slug: spine
+image: 'img/gallery/spine-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset
+library(geomtextpath) # untuk membuat Line Text</code></pre>
+<pre class="r"><code>spine_df &lt;- gapminder %&gt;%
+  filter(year == 2007) %&gt;%
+  mutate(median_lifeExp = median(lifeExp)) %&gt;%
+  group_by(continent) %&gt;%
+  summarize(below_med = sum(lifeExp &lt; median_lifeExp),
+            beyond_med = sum(lifeExp &gt;= median_lifeExp)) %&gt;%
+  pivot_longer(!continent,
+               names_to = &#39;cluster&#39;,
+               values_to = &#39;percent_country&#39;) %&gt;%
+  mutate(percent_country = if_else(cluster == &#39;below_med&#39;,
+                                   -percent_country,
+                                   percent_country))</code></pre>
+<pre class="r"><code>spine &lt;- spine_df %&gt;%
+  ggplot(aes(x = percent_country,
+             y = continent,
+             fill = cluster)) + 
+  geom_col(width = .6,
+           fill = if_else(spine_df$percent_country &gt; 0,
+                          &#39;#094568&#39;,
+                          &#39;#edce79&#39;)) +
+  geom_textvline(xintercept = 0,
+                 label = &#39;Reference Line&#39;,
+                 vjust = -0.5,
+                 hjust = .5,
+                 linewidth = 1,
+                 linecolor = &#39;#4682B4&#39;,
+                 linetype = 2, 
+                 color = &#39;#4682B4&#39;) +
+  scale_x_continuous(limits = c(-48, 48)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/spine-1.png" /></p>

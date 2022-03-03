@@ -1,0 +1,56 @@
+---
+title: Column + Line Timeline
+author: Panggah D. Putra
+date: '2022-03-01'
+slug: column-line-timeline
+categories:
+  - chart
+tags:
+  - korelasi
+  - chart
+  - gallery
+image: 'img/gallery/column line timeline-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset
+library(geomtextpath) # untuk membuat Line Text</code></pre>
+<pre class="r"><code>col_line_tl_df &lt;- gapminder %&gt;%
+  filter(country == &#39;Indonesia&#39;)</code></pre>
+<pre class="r"><code>col_line_tl &lt;- col_line_tl_df %&gt;%
+  ggplot(aes(x = year,
+             y = gdpPercap)) +
+  geom_col(color = &#39;#094568&#39;,
+           fill = &#39;#edce79&#39;) +
+  geom_textline(aes(x = year,
+                    y = lifeExp*20),
+                label = &#39;Reference Line&#39;,
+                size = 3,
+                vjust = -0.5,
+                linewidth = 1,
+                linecolor = &#39;#094568&#39;,
+                linetype = 2, 
+                color = &#39;#094568&#39;) +
+  scale_x_continuous(limits = c(1949, 2011),
+                     breaks = seq(1952, 2007, by = 5)) +
+  scale_y_continuous(limits = c(0, 4000),
+                     breaks = seq(0, 4000, by = 1000)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    strip.text = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/column%20line%20timeline-1.png" /></p>

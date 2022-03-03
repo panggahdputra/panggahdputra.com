@@ -1,0 +1,83 @@
+---
+title: Dot Plot (Dumbbell Plot)
+author: Panggah D. Putra
+date: '2022-03-02'
+slug: dot-plot-dumbbell-plot
+categories:
+  - chart
+tags:
+  - chart
+  - distribusi
+  - gallery
+image: 'img/gallery/dumbbell plot-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data</code></pre>
+<pre class="r"><code>set.seed(2000)
+df1 = tibble(var = &#39;A&#39;, val = rnorm(n = 25, mean = 5.5, sd = 1.5))
+df2 = tibble(var = &#39;B&#39;, val = rnorm(n = 15, mean = 4.5, sd = 1.0))
+df3 = tibble(var = &#39;C&#39;, val = rnorm(n = 20, mean = 5.0, sd = 1.0))
+df4 = tibble(var = &#39;D&#39;, val = rnorm(n = 10, mean = 4.0, sd = 0.5))
+df5 = tibble(var = &#39;E&#39;, val = rnorm(n = 13, mean = 5.0, sd = 1.5))
+
+df &lt;- rbind(df1, df2, df3, df4, df5) %&gt;%
+  mutate(Variable = as_factor(var),
+         value = round(val, 2)) %&gt;%
+  select(Variable, value)</code></pre>
+<pre class="r"><code>dumbbell_plot &lt;- df %&gt;%
+  group_by(Variable) %&gt;%
+  summarise(min = min(value), max = max(value)) %&gt;%
+  ggplot(aes(x = min,
+             xend = max,
+             y = Variable), ) +
+  ggalt::geom_dumbbell(size =3,
+                       size_x = 12,
+                       size_xend = 12,
+                       color = &#39;#edce79&#39;,
+                       colour_x = &#39;#edce79&#39;,
+                       colour_xend = &#39;#edce79&#39;) +
+  ggalt::geom_dumbbell(size = 3,
+                       size_x = 9,
+                       size_xend = 9,
+                       color = &#39;#edce79&#39;,
+                       colour_x = &#39;#660d20&#39;,
+                       colour_xend = &#39;#094568&#39;) +
+  geom_text(aes(x = min,
+                y = Variable,
+                label = round(min, 1)), 
+            size = 3,
+            fontface = &#39;bold&#39;,
+            color = &#39;white&#39;) +
+  geom_text(aes(x = max,
+                y = Variable,
+                label = round(max, 1)), 
+            size = 3,
+            fontface = &#39;bold&#39;,
+            color = &#39;white&#39;) +
+  scale_x_continuous(limits = c(0, 10),
+                     breaks = seq(0, 10, by = 2)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggalt&#39;:
+##   method                  from   
+##   grid.draw.absoluteGrob  ggplot2
+##   grobHeight.absoluteGrob ggplot2
+##   grobWidth.absoluteGrob  ggplot2
+##   grobX.absoluteGrob      ggplot2
+##   grobY.absoluteGrob      ggplot2</code></pre>
+<p><img src="images/dumbbell%20plot-1.png" /></p>

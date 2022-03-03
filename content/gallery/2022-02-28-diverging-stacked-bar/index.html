@@ -1,0 +1,68 @@
+---
+title: Diverging Stacked Bar
+author: Panggah D. Putra
+date: '2022-02-28'
+slug: diverging-stacked-bar
+categories:
+  - chart
+tags:
+  - chart
+  - deviasi
+  - gallery
+image: 'img/gallery/diverging stacked bar-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset
+library(geomtextpath) # untuk membuat Line Text</code></pre>
+<pre class="r"><code>diverging_stacked_bar_df &lt;- gapminder %&gt;%
+  filter(year == 2007) %&gt;%
+  mutate(median_lifeExp = median(lifeExp)) %&gt;%
+  group_by(continent) %&gt;%
+  summarize(below_med = sum(lifeExp &lt; median_lifeExp)/n(),
+            beyond_med = sum(lifeExp &gt;= median_lifeExp)/n()) %&gt;%
+  pivot_longer(!continent,
+               names_to = &#39;cluster&#39;,
+               values_to = &#39;percent_country&#39;) %&gt;%
+  mutate(percent_country = if_else(cluster == &#39;below_med&#39;,
+                                   -percent_country,
+                                   percent_country))</code></pre>
+<pre class="r"><code>diverging_stacked_bar &lt;- diverging_stacked_bar_df %&gt;%
+  ggplot(aes(x = percent_country,
+             y = continent,
+             fill = cluster)) + 
+  geom_col(width = .6,
+           fill = if_else(diverging_stacked_bar_df$percent_country &gt; 0,
+                          &#39;#094568&#39;,
+                          &#39;#edce79&#39;)) +
+  geom_textvline(xintercept = 0,
+                 label = &#39;Reference Line&#39;,
+                 vjust = -0.5,
+                 hjust = .5,
+                 linewidth = 1,
+                 linecolor = &#39;#4682B4&#39;,
+                 linetype = 2, 
+                 color = &#39;#4682B4&#39;) +
+  geom_text(aes(label = scales::percent(abs(percent_country), 2),
+                hjust = ifelse(percent_country &gt; 0, 1.1, -.1)),
+            size = 4,
+            fontface = &#39;bold&#39;,
+            color = &#39;white&#39;) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/diverging%20stacked%20bar-1.png" /></p>

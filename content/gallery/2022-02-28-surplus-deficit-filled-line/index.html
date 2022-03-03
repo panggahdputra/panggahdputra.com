@@ -1,0 +1,58 @@
+---
+title: Surplus/Deficit Filled Line
+author: Panggah D. Putra
+date: '2022-02-28'
+slug: surplus-deficit-filled-line
+categories:
+  - chart
+tags:
+  - chart
+  - deviasi
+  - gallery
+image: 'img/gallery/s_d_filled_line-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset
+library(geomtextpath) # untuk membuat Line Text</code></pre>
+<pre class="r"><code>s_d_filled_line_df &lt;- gapminder %&gt;%
+  filter(continent == &#39;Asia&#39;) %&gt;%
+  group_by(year) %&gt;%
+  mutate(median_gdp = median(gdpPercap),
+         gdp_gap = gdpPercap - median_gdp) %&gt;%
+  filter(country == &#39;Jordan&#39;)</code></pre>
+<pre class="r"><code>s_d_filled_line &lt;- s_d_filled_line_df %&gt;%
+  ggplot(aes(x = year,
+             y = gdp_gap)) +
+  geom_area(color =&#39;#e59a52&#39;,
+            size = 1,
+            fill = &#39;#edce79&#39;) +
+  geom_texthline(yintercept = 0,
+                 label = &#39;Reference Line&#39;,
+                 size = 3,
+                 vjust = 1.2,
+                 hjust = .1,
+                 linewidth = 1,
+                 linecolor = &#39;#4682B4&#39;,
+                 linetype = 2, 
+                 color = &#39;#4682B4&#39;) +
+  scale_x_continuous(limits = c(1952, 2007),
+                     breaks = seq(1952, 2007, by = 5)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/s_d_filled_line-1.png" /></p>

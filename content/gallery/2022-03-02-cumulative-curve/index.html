@@ -1,0 +1,65 @@
+---
+title: Cumulative Curve
+author: Panggah D. Putra
+date: '2022-03-02'
+slug: cumulative-curve
+categories:
+  - chart
+tags:
+  - chart
+  - gallery
+  - distribusi
+image: 'img/gallery/cumulative curve-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data</code></pre>
+<pre class="r"><code>set.seed(123)
+df_for_cum_curve = tibble(
+  var = c(&#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;, &#39;A&#39;,
+          &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;),
+  year = c(&#39;2015&#39;, &#39;2016&#39;, &#39;2017&#39;, &#39;2018&#39;,
+           &#39;2019&#39;, &#39;2020&#39;, &#39;2021&#39;, &#39;2022&#39;,
+           &#39;2015&#39;, &#39;2016&#39;, &#39;2017&#39;, &#39;2018&#39;,
+           &#39;2019&#39;, &#39;2020&#39;, &#39;2021&#39;, &#39;2022&#39;),
+  val = c(sample(10:50, size = 4, replace = TRUE),
+          sample(50:100, size = 4, replace = TRUE),
+          sample(10:50, size = 4, replace = TRUE),
+          sample(50:100, size = 4, replace = TRUE)))
+
+df_for_cum_curve &lt;- df_for_cum_curve %&gt;%
+  group_by(var) %&gt;%
+  mutate(cumulative_val = cumsum(val))</code></pre>
+<pre class="r"><code>cumulative_curve &lt;- df_for_cum_curve %&gt;%
+  ggplot(aes(x = year,
+             y = cumulative_val,
+             group = var,
+             color = var)) +
+  geom_line(size = 1.5) +
+  geom_text(data = subset(df_for_cum_curve,year == &#39;2022&#39;),
+            aes(label = var),
+            hjust = -1) +
+  scale_color_manual(values = c(&#39;#094568&#39;, &#39;#e59a52&#39;),
+                     guide = &#39;none&#39;) +
+  scale_y_continuous(limits = c(0, 500)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text.x = element_text(color = &#39;#660d20&#39;,
+                               face = &#39;bold&#39;),
+    axis.text.y = element_blank(),
+    axis.line.x = element_line(color = &#39;#660d20&#39;,
+                               size = .5),
+    axis.line.y = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/cumulative%20curve-1.png" /></p>

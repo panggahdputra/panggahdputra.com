@@ -1,0 +1,70 @@
+---
+title: Dot Strip Plot (Ranking)
+author: Panggah D. Putra
+date: '2022-03-01'
+slug: dot-strip-plot
+categories:
+  - chart
+tags:
+  - chart
+  - gallery
+  - ranking
+image: 'img/gallery/dot strip plot ranking-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data</code></pre>
+<pre class="r"><code>our_palette &lt;-c(&#39;#e1c59a&#39;,
+                &#39;#094568&#39;,
+                &#39;#edce79&#39;,
+                &#39;#e59a52&#39;,
+                &#39;#660d20&#39;)</code></pre>
+<pre class="r"><code>set.seed(2000)
+df1 = tibble(var1 = &#39;One&#39;,
+             var2 = c(&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;),
+             val = sample(1:20, 10))
+df2 = tibble(var1 = &#39;Two&#39;,
+             var2 = c(&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;),
+             val = sample(1:20, 10))
+df3 = tibble(var1 = &#39;Three&#39;,
+             var2 = c(&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;),
+             val = sample(1:20, 10))
+df4 = tibble(var1 = &#39;Four&#39;,
+             var2 = c(&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;),
+             val = sample(1:20, 10))
+df5 = tibble(var1 = &#39;Five&#39;,
+             var2 = c(&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;,&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;),
+             val = sample(1:20, 10))
+
+dot_strip_plot_df &lt;- rbind(df1, df2, df3, df4, df5)</code></pre>
+<pre class="r"><code>dot_strip_plot_rank &lt;- dot_strip_plot_df %&gt;%
+  ggplot(aes(x = val,
+             y = var1,
+             color = var2,
+             fill = var2)) +
+  geom_point(size = 10) +
+  geom_text(aes(label = var2),
+            size = 4,
+            fontface = &#39;bold&#39;,
+            color = &#39;white&#39;) +
+  scale_color_manual(values = our_palette,
+                     guide = &#39;none&#39;) +
+  scale_fill_manual(values = our_palette,
+                    guide = &#39;none&#39;) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/dot%20strip%20plot%20ranking-1.png" /></p>

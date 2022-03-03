@@ -1,0 +1,60 @@
+---
+title: Ordered Dot Strip Plot
+author: Panggah D. Putra
+date: '2022-03-01'
+slug: ordered-dot-strip-plot
+categories:
+  - chart
+tags:
+  - chart
+  - gallery
+  - ranking
+image: 'img/gallery/ordered dot strip plot-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Ordered by Median
+<!--more--></p>
+<p>Ordered by Median</p>
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset</code></pre>
+<pre class="r"><code>our_palette &lt;-c(&#39;#660d20&#39;,
+                &#39;#e59a52&#39;,
+                &#39;#edce79&#39;,
+                &#39;#094568&#39;,
+                &#39;#e1c59a&#39;)</code></pre>
+<pre class="r"><code>ordered_dot_strip_plot_df &lt;- gapminder %&gt;%
+  filter(year == 2007) %&gt;%
+  group_by(continent) %&gt;%
+  mutate(medianlifeExp = median(lifeExp))</code></pre>
+<pre class="r"><code>ordered_dot_strip_plot &lt;- ordered_dot_strip_plot_df  %&gt;%
+ ggplot(aes(x = reorder(continent, -medianlifeExp),
+            y = lifeExp,
+            color = reorder(continent, -medianlifeExp),
+            fill = reorder(continent, -medianlifeExp))) +
+  geom_point(size = 7) +
+  scale_color_manual(values = our_palette,
+                     guide = &#39;none&#39;) +
+  scale_fill_manual(values = our_palette,
+                    guide = &#39;none&#39;) +
+  stat_summary(fun = &#39;median&#39;,
+               geom = &#39;text&#39;,
+               label = &#39;median&#39;,
+               size = 5,
+               color = &#39;#4682B4&#39;) + 
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/ordered%20dot%20strip%20plot-1.png" /></p>

@@ -1,0 +1,63 @@
+---
+title: Bump Chart
+author: Panggah D. Putra
+date: '2022-03-02'
+slug: bump-chart
+categories:
+  - chart
+tags:
+  - chart
+  - gallery
+  - ranking
+image: 'img/gallery/bump chart-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset</code></pre>
+<pre class="r"><code>our_palette &lt;-c(&#39;#660d20&#39;,
+                &#39;#e59a52&#39;,
+                &#39;#edce79&#39;,
+                &#39;#094568&#39;,
+                &#39;#e1c59a&#39;)</code></pre>
+<pre class="r"><code>bump_df &lt;- gapminder %&gt;%
+  filter(year %in% c(1967,1977,1987,1997,2007)) %&gt;%
+  group_by(continent, year) %&gt;%
+  summarize(maxlifeExp = max(lifeExp)) %&gt;%
+  group_by(year) %&gt;%
+  mutate(ranking = dense_rank(desc(maxlifeExp)))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;continent&#39;. You can override using the `.groups` argument.</code></pre>
+<pre class="r"><code>bump &lt;- bump_df %&gt;%
+  ggplot(aes(x = year,
+             y = ranking,
+             color = continent)) +
+  ggbump::geom_bump(size = 3,
+                    smooth = 20,
+                    show.legend = FALSE) +
+  geom_point(size = 7) +
+  geom_text(aes(label = ranking),
+            size = 4,
+            fontface = &#39;bold&#39;,
+            color = &#39;white&#39;) +
+  scale_color_manual(values = our_palette,
+                     guide = &#39;none&#39;) +
+  scale_y_reverse() +
+  scale_x_continuous(limits = c(1964,2010),
+                     breaks = c(1967,1977,1987,1997,2007)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/bump%20chart-1.png" /></p>

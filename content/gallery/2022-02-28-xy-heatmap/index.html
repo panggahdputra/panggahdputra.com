@@ -1,0 +1,52 @@
+---
+title: XY Heatmap
+author: Panggah D. Putra
+date: '2022-02-28'
+slug: heatmap
+categories:
+  - chart
+tags:
+  - gallery
+  - chart
+  - korelasi
+image: 'img/gallery/heatmap-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset</code></pre>
+<pre class="r"><code>xy_heatmap_df &lt;- gapminder %&gt;%
+  mutate(year = as.factor(year)) %&gt;%
+  group_by(continent, year) %&gt;%
+  summarize(MedlifeExp = round(median(lifeExp), 0))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;continent&#39;. You can override using the `.groups` argument.</code></pre>
+<pre class="r"><code>xy_heatmap &lt;- xy_heatmap_df %&gt;%
+  ggplot(aes(x = year,
+             y = continent,
+             fill = MedlifeExp)) +
+  geom_tile(color = &#39;#FFFFFF&#39;) +
+  geom_text(aes(label = MedlifeExp),
+            size = 4,
+            color = &#39;#FFFFFF&#39;) +
+  scale_fill_gradient(name = &#39;Median Life Expectancy&#39;,
+                      low = &#39;#8a9db1&#39;,
+                      high = &#39;#094568&#39;) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    strip.text = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;),
+    legend.position = &#39;none&#39;
+  )</code></pre>
+<p><img src="images/heatmap-1.png" /></p>

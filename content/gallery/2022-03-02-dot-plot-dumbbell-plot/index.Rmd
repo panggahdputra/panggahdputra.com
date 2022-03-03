@@ -1,0 +1,86 @@
+---
+title: Dot Plot (Dumbbell Plot)
+author: Panggah D. Putra
+date: '2022-03-02'
+slug: dot-plot-dumbbell-plot
+categories:
+  - chart
+tags:
+  - chart
+  - distribusi
+  - gallery
+image: 'img/gallery/dumbbell plot-1.png'
+showonlyimage: no
+---
+<!--more-->
+
+```{r, message=FALSE}
+library(tidyverse)    # untuk manupulasi, merapikan, & visualisasi data
+```
+
+```{r}
+set.seed(2000)
+df1 = tibble(var = 'A', val = rnorm(n = 25, mean = 5.5, sd = 1.5))
+df2 = tibble(var = 'B', val = rnorm(n = 15, mean = 4.5, sd = 1.0))
+df3 = tibble(var = 'C', val = rnorm(n = 20, mean = 5.0, sd = 1.0))
+df4 = tibble(var = 'D', val = rnorm(n = 10, mean = 4.0, sd = 0.5))
+df5 = tibble(var = 'E', val = rnorm(n = 13, mean = 5.0, sd = 1.5))
+
+df <- rbind(df1, df2, df3, df4, df5) %>%
+  mutate(Variable = as_factor(var),
+         value = round(val, 2)) %>%
+  select(Variable, value)
+```
+
+```{r}
+dumbbell_plot <- df %>%
+  group_by(Variable) %>%
+  summarise(min = min(value), max = max(value)) %>%
+  ggplot(aes(x = min,
+             xend = max,
+             y = Variable), ) +
+  ggalt::geom_dumbbell(size =3,
+                       size_x = 12,
+                       size_xend = 12,
+                       color = '#edce79',
+                       colour_x = '#edce79',
+                       colour_xend = '#edce79') +
+  ggalt::geom_dumbbell(size = 3,
+                       size_x = 9,
+                       size_xend = 9,
+                       color = '#edce79',
+                       colour_x = '#660d20',
+                       colour_xend = '#094568') +
+  geom_text(aes(x = min,
+                y = Variable,
+                label = round(min, 1)), 
+            size = 3,
+            fontface = 'bold',
+            color = 'white') +
+  geom_text(aes(x = max,
+                y = Variable,
+                label = round(max, 1)), 
+            size = 3,
+            fontface = 'bold',
+            color = 'white') +
+  scale_x_continuous(limits = c(0, 10),
+                     breaks = seq(0, 10, by = 2)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = '#FFFFFF',
+                                    color = NA),
+    plot.background = element_rect(fill = '#FFFFFF',
+                                   color = '#FFFFFF')
+  )
+```
+
+```{r dumbbell plot, include=FALSE}
+dumbbell_plot
+```
+
+![](images/dumbbell plot-1.png)

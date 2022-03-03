@@ -1,0 +1,68 @@
+---
+title: Ordered Proportional Symbol
+author: Panggah D. Putra
+date: '2022-03-01'
+slug: ordered-proportional-symbol
+categories:
+  - chart
+tags:
+  - chart
+  - gallery
+  - ranking
+image: 'img/gallery/ordered prop symbol-1.png'
+showonlyimage: no
+---
+<!--more-->
+
+```{r, message=FALSE}
+library(tidyverse)    # untuk manupulasi, merapikan, & visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset
+```
+
+```{r}
+our_palette <-c('#660d20',
+                '#e59a52',
+                '#edce79',
+                '#094568',
+                '#e1c59a')
+```
+
+```{r}
+ordered_prop_symbol_df <- gapminder %>%
+  group_by(continent) %>%
+  summarize(medianlifeExp = median(lifeExp))
+```
+
+```{r}
+ordered_prop_symbol <- ordered_prop_symbol_df %>%
+  ggplot(aes(x = reorder(continent, -medianlifeExp),
+             y = 0,
+             color = reorder(continent, -medianlifeExp),
+             fill = reorder(continent, -medianlifeExp))) +
+  geom_point(aes(size = medianlifeExp),
+             show.legend = FALSE) +
+  scale_size_area(max_size = 40) +
+  scale_color_manual(values = our_palette,
+                     guide = 'none') +
+  scale_fill_manual(values = our_palette,
+                    guide = 'none') +
+  scale_y_continuous(limits = c(-1, 1)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = '#FFFFFF',
+                                    color = NA),
+    plot.background = element_rect(fill = '#FFFFFF',
+                                   color = '#FFFFFF')
+  )
+```
+
+```{r ordered prop symbol, include=FALSE}
+ordered_prop_symbol
+```
+
+![](images/ordered prop symbol-1.png)

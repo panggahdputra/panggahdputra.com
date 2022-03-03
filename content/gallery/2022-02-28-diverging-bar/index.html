@@ -1,0 +1,56 @@
+---
+title: Diverging Bar
+author: Panggah D. Puta
+date: '2022-02-28'
+slug: diverging-bar
+categories:
+  - chart
+tags:
+  - chart
+  - deviasi
+  - gallery
+image: 'img/gallery/diverging bar-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset
+library(geomtextpath) # untuk membuat Line Text</code></pre>
+<pre class="r"><code>diverging_bar_df &lt;- gapminder %&gt;%
+  filter(continent == &#39;Asia&#39;,
+         year == 2007) %&gt;%
+  mutate(median_lifeExp = median(lifeExp),
+         lifeExp_gap = lifeExp - median_lifeExp) %&gt;%
+  filter(between(lifeExp_gap, -12, 12))</code></pre>
+<pre class="r"><code>diverging_bar &lt;- diverging_bar_df %&gt;%
+  ggplot(aes(x = lifeExp_gap,
+             y = reorder(country, lifeExp_gap),
+             fill = lifeExp_gap)) +
+  geom_col(fill = if_else(diverging_bar_df$lifeExp_gap &gt; 0,
+                          &#39;#094568&#39;,
+                          &#39;#edce79&#39;)) +
+  geom_textvline(xintercept = 0,
+                 label = &#39;Reference Line&#39;,
+                 vjust = -0.5,
+                 hjust = .5,
+                 linewidth = 1,
+                 linecolor = &#39;#4682B4&#39;,
+                 linetype = 2, 
+                 color = &#39;#4682B4&#39;) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/diverging%20bar-1.png" /></p>

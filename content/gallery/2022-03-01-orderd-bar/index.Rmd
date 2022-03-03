@@ -1,0 +1,66 @@
+---
+title: Ordered Bar
+author: Panggah D. Putra
+date: '2022-03-01'
+slug: orderd-bar
+categories:
+  - chart
+tags:
+  - chart
+  - gallery
+  - ranking
+image: 'img/gallery/ordered bar-1.png'
+showonlyimage: no
+---
+<!--more-->
+
+```{r, message=FALSE}
+library(tidyverse)    # untuk manupulasi, merapikan, & visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset
+```
+
+```{r}
+our_palette <-c('#660d20',
+                '#e59a52',
+                '#edce79',
+                '#094568',
+                '#e1c59a')
+```
+
+```{r}
+ordered_bar_df <- gapminder %>%
+  group_by(continent) %>%
+  summarize(medianlifeExp = median(lifeExp))
+```
+
+```{r}
+ordered_bar <- ordered_bar_df %>%
+  ggplot(aes(x = medianlifeExp,
+             y = reorder(continent, medianlifeExp),
+             color = reorder(continent, -medianlifeExp),
+             fill = reorder(continent, -medianlifeExp))) +
+  geom_col(width = .6) +
+  scale_color_manual(values = our_palette,
+                     guide = 'none') +
+  scale_fill_manual(values = our_palette,
+                    guide = 'none') +
+  scale_x_continuous(limits = c(0, 90)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = '#FFFFFF',
+                                    color = NA),
+    plot.background = element_rect(fill = '#FFFFFF',
+                                   color = '#FFFFFF')
+  )
+```
+
+```{r ordered bar, include=FALSE}
+ordered_bar
+```
+
+![](images/ordered bar-1.png)

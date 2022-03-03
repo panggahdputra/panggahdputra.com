@@ -1,0 +1,45 @@
+---
+title: Scatter Plot + Simple Linear Model
+author: Panggah D. Putra
+date: '2022-02-28'
+slug: scatter-plot-simple-linear-model
+categories:
+  - chart
+tags:
+  - chart
+  - gallery
+  - korelasi
+image: 'img/gallery/scatter_plot_reg_line-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data
+library(gapminder)    # untuk mengakses gapminder dataset</code></pre>
+<pre class="r"><code>scatter_plot_reg_line_df &lt;- gapminder %&gt;%
+  filter(continent == &#39;Europe&#39;)</code></pre>
+<pre class="r"><code>scatter_plot_reg_line &lt;- scatter_plot_reg_line_df %&gt;%
+  ggplot(aes(x = log(gdpPercap),
+             y = lifeExp)) +
+  geom_point(size = 5,
+             color = &#39;#e1c59a&#39;) +
+  geom_smooth(method = &#39;lm&#39;,
+              se = FALSE,
+              color = &#39;#094568&#39;) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    strip.text = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/scatter_plot_reg_line-1.png" /></p>

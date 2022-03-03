@@ -1,0 +1,52 @@
+---
+title: Histogram
+author: Panggah D. Putra
+date: '2022-03-02'
+slug: histogram
+categories:
+  - chart
+tags:
+  - chart
+  - gallery
+  - distribusi
+image: 'img/gallery/histogram-1.png'
+showonlyimage: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<!--more-->
+<pre class="r"><code>library(tidyverse)    # untuk manupulasi, merapikan, &amp; visualisasi data</code></pre>
+<pre class="r"><code>set.seed(2000)
+df1 = tibble(var = &#39;A&#39;, val = rnorm(n = 25, mean = 5.5, sd = 1.5))
+df2 = tibble(var = &#39;B&#39;, val = rnorm(n = 15, mean = 4.5, sd = 1.0))
+df3 = tibble(var = &#39;C&#39;, val = rnorm(n = 20, mean = 5.0, sd = 1.0))
+df4 = tibble(var = &#39;D&#39;, val = rnorm(n = 10, mean = 4.0, sd = 0.5))
+df5 = tibble(var = &#39;E&#39;, val = rnorm(n = 13, mean = 5.0, sd = 1.5))
+
+df &lt;- rbind(df1, df2, df3, df4, df5) %&gt;%
+  mutate(Variable = as_factor(var),
+         value = round(val, 2)) %&gt;%
+  select(Variable, value)</code></pre>
+<pre class="r"><code>histogram &lt;- df %&gt;%
+  ggplot(aes(x = value)) +
+  geom_histogram(bins = 25,
+                 alpha = .9,
+                 color = &#39;#094568&#39;,
+                 fill = &#39;#edce79&#39;) +
+  scale_x_continuous(limits = c(0,10)) +
+  scale_y_continuous(limits = c(0, 15)) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                    color = NA),
+    plot.background = element_rect(fill = &#39;#FFFFFF&#39;,
+                                   color = &#39;#FFFFFF&#39;)
+  )</code></pre>
+<p><img src="images/histogram-1.png" /></p>
