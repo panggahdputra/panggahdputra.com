@@ -1,8 +1,8 @@
 ---
-title: Dot Strip Plot (Distribution)
-author: Panggah D.Putra
+title: Dot Strip Plot - Distribution
+author: Panggah D. Putra
 date: '2022-03-02'
-slug: dot-strip-plot
+slug: dot-strip-plot-distribution
 categories:
   - chart
 tags:

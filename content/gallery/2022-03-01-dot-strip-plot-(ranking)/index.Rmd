@@ -1,8 +1,8 @@
 ---
-title: Dot Strip Plot (Ranking)
+title: Dot Strip Plot - Ranking
 author: Panggah D. Putra
 date: '2022-03-01'
-slug: dot-strip-plot
+slug: dot-strip-plot-ranking
 categories:
   - chart
 tags:
