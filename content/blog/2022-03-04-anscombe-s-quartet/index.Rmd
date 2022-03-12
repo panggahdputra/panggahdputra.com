@@ -105,7 +105,7 @@ anscombe_table <- anscombe_dataset %>%
 anscombe_table
 ```
 <br>
-Tanpa melihat visualisasi datanya, keempat dataset di atas sekilas identik, bahkan ketika dihitung persamaan regresi linearnya, keempatnya memiliki persamaan regresi linear yang hampir sama.
+Tanpa melihat visualisasi datanya, keempat dataset di atas sekilas terlihat memiliki nilai statistik deskriptif yang hampir sama, bahkan ketika dihitung persamaan regresi linearnya, keempatnya memiliki persamaan regresi linear yang hampir sama pula.
 
 ```{r, include=FALSE}
 model_1 <- lm(y1 ~ x1, data = anscombe_dataset)
