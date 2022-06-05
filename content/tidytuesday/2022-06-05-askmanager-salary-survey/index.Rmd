@@ -9,7 +9,9 @@ tags:
   - visualisasi data
   - chart
 draft: yes
-image: ''
+image: 'img/tidytuesday/2021tidytuesday21.png'
 showonlyimage: no
 ---
 TidyTuesday Pekan 21 Tahun 2021
+<!--more-->
+![](images/2021tidytuesday21.png)
