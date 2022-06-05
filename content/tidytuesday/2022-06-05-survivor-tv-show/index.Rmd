@@ -12,9 +12,6 @@ draft: yes
 image: 'img/tidytuesday/2021tidytuesday23.png'
 showonlyimage: no
 ---
-```{r}
-#TidyTuesday Pekan 23 Tahun 2021
-```
-
+TidyTuesday Pekan 23 Tahun 2021
 <!--more-->
 ![](images/2021tidytuesday23.png)
