@@ -1,0 +1,18 @@
+---
+title: '#TidyTuesday 23 2021'
+author: Panggah D. Putra
+date: '2022-06-05'
+slug: []
+categories:
+  - chart
+tags:
+  - visualisasi data
+  - chart
+  - tidytuesday
+draft: yes
+image: 'img/gallery/2021tidytuesday23.png'
+showonlyimage: no
+---
+<!--more-->
+
+![](images/2021tidytuesday23.png)

@@ -1,0 +1,106 @@
+---
+title: Anscombe's Quartet
+author: Panggah D. Putra
+date: '2022-03-04'
+slug: anscombe-s-quartet
+categories:
+  - article
+tags:
+  - article
+  - visualisasi data
+---
+Pentingnya visualisasi data diilustrasikan dengan baik pada Anscombe's Quartet yang dipublikasikan pada tahun 1973 oleh Francis John Anscombe.
+<!--more-->
+
+Pentingnya visualisasi data diilustrasikan dengan baik pada [Anscombe's Quartet](https://www.tandfonline.com/doi/abs/10.1080/00031305.1973.10478966) yang dipublikasikan pada tahun 1973 oleh Francis John Anscombe.
+
+Anscombe's Quartet menyajikan 4 dataset yang memiliki nilai statistik deskriptif yang hampir sama, namun ternyata ketika divisualisasikan dalam bentuk grafik, memiliki visualisasi yang jauh berbeda.
+
+```{r, include=FALSE, message=FALSE}
+library(tidyverse)
+library(gt)
+library(gtExtras)
+```
+
+```{r, include=FALSE}
+anscombe_dataset <- anscombe
+
+anscombe_table <- anscombe_dataset %>%
+  select(x1,y1,x2,y2,x3,y3,x4,y4) %>%
+  gt() %>%
+  gt_theme_538() %>% 
+  tab_header(title = "Anscombe's Quartet") %>%
+  tab_spanner(
+    label = "Dataset 1", columns = c(x1,y1)
+  ) %>%
+  tab_spanner(
+    label = "Dataset 2", columns = c(x2,y2)
+  ) %>%
+  tab_spanner(
+    label = "Dataset 3", columns = c(x3,y3)
+  ) %>%
+  tab_spanner(
+    label = "Dataset 4", columns = c(x4,y4)
+  ) %>%
+  summary_rows(
+    fns = list(
+      SUM = ~sum(.),
+      AVG = ~mean(.),
+      SD = ~sd(.)),
+    formatter = fmt_number,
+    use_seps = FALSE
+  ) %>%
+  tab_style(
+    cell_borders(sides = "right",
+                 color = "#000000",
+                 style = "solid",
+                 weight = px(1)),
+    locations = list(
+      cells_body(columns = c(y1,y2,y3,y4)),
+      cells_column_labels(columns = c(y1,y2,y3,y4))
+    )
+  ) %>%
+  tab_style(
+    style = list(
+      cell_fill(color = "lightcyan"),
+      cell_borders(sides = "right",
+                   color = "#000000",
+                   style = "solid",
+                   weight = px(1))
+    ),
+    locations = cells_column_spanners()
+  ) %>%
+  tab_style(
+    style = list(
+      cell_fill(color = "lightcyan"),
+      cell_borders(sides = "right",
+                   color = "#000000",
+                   style = "solid",
+                   weight = px(1))
+    ),
+    locations = list(
+      cells_grand_summary(columns = c(y1,y2,y3,y4), rows = 1),
+      cells_grand_summary(columns = c(y1,y2,y3,y4), rows = 2),
+      cells_grand_summary(columns = c(y1,y2,y3,y4), rows = 3)
+    )
+  ) %>%
+  tab_style(
+    style = list(
+      cell_fill(color = "lightcyan"),
+      cell_borders(sides = "right",
+                   color = "lightcyan",
+                   style = "solid",
+                   weight = px(1))
+    ),
+    locations = list(
+      cells_grand_summary(columns = c(x1,x2,x3,x4), rows = 1),
+      cells_grand_summary(columns = c(x1,x2,x3,x4), rows = 2),
+      cells_grand_summary(columns = c(x1,x2,x3,x4), rows = 3)
+    )
+  )
+```
+
+```{r, echo=FALSE}
+anscombe_table
+```
+
