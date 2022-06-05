@@ -1,0 +1,14 @@
+---
+title: Survivor TV Show 2021
+author: ''
+date: '2022-06-05'
+slug: []
+categories:
+  - chart
+tags:
+  - chart
+  - visualisasi data
+draft: yes
+image: ''
+showonlyimage: no
+---
