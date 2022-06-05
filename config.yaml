@@ -12,6 +12,8 @@ params:
     - home: yes
       name: Galeri
       url: gallery/
+    - name: TidyTuesday
+      url: tidytuesday/
     - name: Blog
       url: blog/
     - name: Tentang

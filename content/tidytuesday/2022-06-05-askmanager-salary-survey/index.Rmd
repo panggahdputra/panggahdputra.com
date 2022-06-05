@@ -1,0 +1,15 @@
+---
+title: Askmanager Salary Survey
+author: Panggah D. Putra
+date: '2022-06-05'
+slug: []
+categories:
+  - chart
+tags:
+  - visualisasi data
+  - chart
+draft: yes
+image: ''
+showonlyimage: no
+---
+TidyTuesday Pekan 21 Tahun 2021
