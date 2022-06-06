@@ -8,8 +8,8 @@ categories:
 tags:
   - visualisasi data
   - chart
-draft: yes
-image: 'img/tidytuesday/2021tidytuesday25.png'
+draft: no
+image: 'img/galeri/2021tidytuesday25.png'
 showonlyimage: no
 ---
 TidyTuesday Pekan 25 Tahun 2021

@@ -11,11 +11,11 @@ params:
   navlinks:
     - home: yes
       name: Galeri
-      url: gallery/
-    - name: TidyTuesday
-      url: tidytuesday/
-    - name: Blog
-      url: blog/
+      url: galeri/
+    - name: Katalog Chart
+      url: katalog/
+    - name: Artikel
+      url: artikel/
     - name: Tentang
       url: about/
   social:

@@ -8,8 +8,8 @@ categories:
 tags:
   - visualisasi data
   - chart
-draft: yes
-image: 'img/tidytuesday/2021tidytuesday23.png'
+draft: no
+image: 'img/galeri/2021tidytuesday23.png'
 showonlyimage: no
 ---
 TidyTuesday Pekan 23 Tahun 2021
