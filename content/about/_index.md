@@ -9,6 +9,5 @@ Website pribadi ini saya susun dalam rangka mendokumentasikan hasil saya belajar
 
 
 Kunjungi juga:
-
 * visualr.panggahdputra.com
 * panggahdputra.shinyapps.io/datvis
