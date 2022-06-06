@@ -10,5 +10,5 @@ Website pribadi ini saya susun dalam rangka mendokumentasikan hasil saya belajar
 
 Kunjungi juga:
 
-* [Latihan R-Markdown](visualr.panggahdputra.com) <br>
-* [Latihan shinyapps.io](panggahdputra.shinyapps.io/datvis)
+* visualr.panggahdputra.com
+* panggahdputra.shinyapps.io/datvis
