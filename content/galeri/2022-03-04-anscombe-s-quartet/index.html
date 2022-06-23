@@ -1,0 +1,619 @@
+---
+title: Anscombe's Quartet
+author: Panggah D. Putra
+date: '2022-03-04'
+slug: anscombe-s-quartet
+categories:
+  - article
+tags:
+  - article
+  - visualisasi data
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Pentingnya visualisasi data dapat dipahami melalui ilustrasi pada Anscombe’s Quartet yang dipublikasikan pada tahun 1973 oleh Francis John Anscombe.
+<!--more--></p>
+<p>Pentingnya visualisasi data dapat dipahami melalui ilustrasi pada <a href="https://www.tandfonline.com/doi/abs/10.1080/00031305.1973.10478966">Anscombe’s Quartet</a> yang dipublikasikan pada tahun 1973 oleh Francis John Anscombe.</p>
+<p>Anscombe’s Quartet menyajikan 4 dataset yang memiliki nilai statistik deskriptif yang hampir sama, namun ternyata ketika divisualisasikan dalam bentuk grafik, memiliki visualisasi yang jauh berbeda.</p>
+<div id="xabkjqexqj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html {
+  font-family: Chivo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#xabkjqexqj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xabkjqexqj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xabkjqexqj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xabkjqexqj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xabkjqexqj .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xabkjqexqj .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xabkjqexqj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xabkjqexqj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xabkjqexqj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xabkjqexqj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xabkjqexqj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xabkjqexqj .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xabkjqexqj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#xabkjqexqj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xabkjqexqj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xabkjqexqj .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xabkjqexqj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xabkjqexqj .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xabkjqexqj .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xabkjqexqj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xabkjqexqj .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xabkjqexqj .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xabkjqexqj .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xabkjqexqj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xabkjqexqj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xabkjqexqj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xabkjqexqj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xabkjqexqj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xabkjqexqj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xabkjqexqj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xabkjqexqj .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xabkjqexqj .gt_left {
+  text-align: left;
+}
+
+#xabkjqexqj .gt_center {
+  text-align: center;
+}
+
+#xabkjqexqj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xabkjqexqj .gt_font_normal {
+  font-weight: normal;
+}
+
+#xabkjqexqj .gt_font_bold {
+  font-weight: bold;
+}
+
+#xabkjqexqj .gt_font_italic {
+  font-style: italic;
+}
+
+#xabkjqexqj .gt_super {
+  font-size: 65%;
+}
+
+#xabkjqexqj .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#xabkjqexqj .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xabkjqexqj .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#xabkjqexqj .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#xabkjqexqj .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="9" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Anscombe's Quartet</th>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1"></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">
+        <span class="gt_column_spanner">Dataset 1</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">
+        <span class="gt_column_spanner">Dataset 2</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">
+        <span class="gt_column_spanner">Dataset 3</span>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">
+        <span class="gt_column_spanner">Dataset 4</span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;">x1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">y1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;">x2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">y2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;">x3</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">y3</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;">x4</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">y4</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.04</td>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">9.14</td>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.46</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">6.58</td></tr>
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">6.95</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.14</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">6.77</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">5.76</td></tr>
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">13</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.58</td>
+<td class="gt_row gt_right">13</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.74</td>
+<td class="gt_row gt_right">13</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">12.74</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.71</td></tr>
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">9</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.81</td>
+<td class="gt_row gt_right">9</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.77</td>
+<td class="gt_row gt_right">9</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.11</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.84</td></tr>
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">11</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.33</td>
+<td class="gt_row gt_right">11</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">9.26</td>
+<td class="gt_row gt_right">11</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.81</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.47</td></tr>
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">14</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">9.96</td>
+<td class="gt_row gt_right">14</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.10</td>
+<td class="gt_row gt_right">14</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.84</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.04</td></tr>
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">6</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.24</td>
+<td class="gt_row gt_right">6</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">6.13</td>
+<td class="gt_row gt_right">6</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">6.08</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">5.25</td></tr>
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">4</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">4.26</td>
+<td class="gt_row gt_right">4</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">3.10</td>
+<td class="gt_row gt_right">4</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">5.39</td>
+<td class="gt_row gt_right">19</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">12.50</td></tr>
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">12</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">10.84</td>
+<td class="gt_row gt_right">12</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">9.13</td>
+<td class="gt_row gt_right">12</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">8.15</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">5.56</td></tr>
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">7</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">4.82</td>
+<td class="gt_row gt_right">7</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.26</td>
+<td class="gt_row gt_right">7</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">6.42</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.91</td></tr>
+    <tr><td class="gt_row gt_right gt_stub"></td>
+<td class="gt_row gt_right">5</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">5.68</td>
+<td class="gt_row gt_right">5</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">4.74</td>
+<td class="gt_row gt_right">5</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">5.73</td>
+<td class="gt_row gt_right">8</td>
+<td class="gt_row gt_right" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">6.89</td></tr>
+    <tr><td class="gt_row gt_right gt_stub gt_grand_summary_row gt_first_grand_summary_row">SUM</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">99.00</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">82.51</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">99.00</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">82.51</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">99.00</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">82.50</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">99.00</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">82.51</td></tr>
+    <tr><td class="gt_row gt_right gt_stub gt_grand_summary_row">AVG</td>
+<td class="gt_row gt_right gt_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">9.00</td>
+<td class="gt_row gt_right gt_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.50</td>
+<td class="gt_row gt_right gt_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">9.00</td>
+<td class="gt_row gt_right gt_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.50</td>
+<td class="gt_row gt_right gt_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">9.00</td>
+<td class="gt_row gt_right gt_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.50</td>
+<td class="gt_row gt_right gt_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">9.00</td>
+<td class="gt_row gt_right gt_grand_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">7.50</td></tr>
+    <tr><td class="gt_row gt_right gt_stub gt_grand_summary_row gt_last_summary_row">SD</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_last_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">3.32</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_last_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">2.03</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_last_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">3.32</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_last_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">2.03</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_last_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">3.32</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_last_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">2.03</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_last_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: lightcyan;">3.32</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_last_summary_row" style="background-color: #E0FFFF; border-right-width: 1px; border-right-style: solid; border-right-color: #000000;">2.03</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="9">Tabel dibuat dengan menggunakan gt dan gtExtras package</td>
+    </tr>
+  </tfoot>
+  
+</table>
+</div>
+<p><br>
+Tanpa melihat visualisasi datanya, keempat dataset di atas sekilas terlihat memiliki nilai statistik deskriptif yang hampir sama, bahkan ketika dihitung persamaan regresi linearnya, keempatnya memiliki persamaan regresi linear yang hampir sama pula.</p>
+<pre><code>## [1] &quot;Y1 = 3 + 0.5*X1&quot;</code></pre>
+<pre><code>## [1] &quot;Y2 = 3 + 0.5*X2&quot;</code></pre>
+<pre><code>## [1] &quot;Y3 = 3 + 0.5*X3&quot;</code></pre>
+<pre><code>## [1] &quot;Y4 = 3 + 0.5*X4&quot;</code></pre>
+<p><br>
+Namun ternyata keempat dataset di atas sangatlah berbeda ketika divisualisasikan.</p>
+<p><img src="images/anscombe%20visual-1.png" /></p>
+<p><br>
+Dari visualisasi di atas, dapat dipahami bahwa:</p>
+<ul>
+<li>pada dataset 1 terlihat bahwa variabel x dan y memiliki hubungan yang linear. <br></li>
+<li>pada dataset 2 terlihat bahwa variabel x dan y memiliki hubungan non-linear. <br></li>
+<li>pada dataset 3 terlihat bahwa variabel x dan y memiliki hubungan yang linear dan terdapat 1 outlier. <br></li>
+<li>pada dataset 4 terlihat bahwa 1 outlier ekstrim mampu mempengaruhi persamaan linear dari keseluruhan data pada dataset 4. <br></li>
+</ul>
+<p><br></p>
+<div id="kesimpulan" class="section level6">
+<h6>Kesimpulan</h6>
+<p>Dari ilustrasi pada Anscombe’s Dataset di atas dapat disimpulkan bahwa visualisasi data adalah hal yang penting untuk dilakukan sebelum menganalisis hubungan antar variabel dalam suatu dataset karena perhitungan statistik deskriptif saja tidaklah cukup untuk menggambarkan keadaan dataset sesungguhnya.</p>
+</div>
