@@ -9,9 +9,9 @@ tags:
   - visualisasi data
   - chart
 draft: no
-image: 'img/galeri/2021tidytuesday04.png'
+image: 'img/galeri/2021tidytuesday03.png'
 showonlyimage: no
 ---
 TidyTuesday Pekan 4 Tahun 2021
 <!--more-->
-![](images/2021tidytuesday04.png)
+![](images/2021tidytuesday03.png)
