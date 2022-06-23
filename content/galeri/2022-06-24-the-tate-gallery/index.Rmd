@@ -8,7 +8,7 @@ categories:
 tags:
   - chart
   - visualisasi data
-draft: yes
+draft: no
 image: 'img/galeri/2021tidytuesday03.png'
 showonlyimage: no
 ---
