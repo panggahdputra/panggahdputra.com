@@ -12,7 +12,7 @@ params:
     - home: yes
       name: Galeri
       url: galeri/
-    - name: Katalog Chart
+    - name: Katalog
       url: katalog/
     - name: Artikel
       url: artikel/
