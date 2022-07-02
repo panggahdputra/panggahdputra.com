@@ -1,0 +1,28 @@
+---
+title: Antara Sains dan Seni
+author: Panggah D. Putra
+date: ''
+slug: antara-sains-dan-seni
+categories:
+  - article
+tags:
+  - article
+  - visualisasi data
+---
+Visualisasi data adalah kombinasi dari sains dan seni.
+<!--more-->
+
+Visualisasi data adalah kombinasi dari sains dan seni.
+
+Ketika ingin lebih dekat dengan sisi sains-nya, kita akan membuat visualisasi yang akurat dan mudah diinterpretasi seperti bar chart, line chart, dan lain-lain.
+
+Ketika ingin lebih dekat dengan sisi seni-nya, kita akan membuat visualisasi yang "eyecatching" dengan tujuan utama untuk menarik minat pembaca.
+
+> *"Bagaimana kita memvisualisasikan data, sama pentingnya dengan data itu sendiri." - Jonathan Schwabish*
+
+Hal penting dari visualisasi data yang harus kita perhatikan adalah kepada siapa yang akan membaca visualisasi data tersebut.
+
+Dalam kalangan akademis, visualisasi data yang akurat dan mudah diinterpretasi adalah hal yang lebih diutamakan dari pada sisi seninya.
+
+Lain halnya dengan visualisasi data untuk headline berita, ringkasan informasi, atau visualisasi data untuk pembaca umum di sosial media, tentu visualisasi data yang "eyecatching" adalah yang lebih baik untuk disajikan.
+
