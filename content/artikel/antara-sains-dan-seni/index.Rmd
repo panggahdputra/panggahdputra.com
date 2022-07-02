@@ -14,13 +14,13 @@ Visualisasi data adalah kombinasi dari sains dan seni.
 
 Visualisasi data adalah kombinasi dari sains dan seni.
 
-Ketika ingin lebih dekat dengan sisi sains-nya, kita akan membuat visualisasi yang akurat dan mudah diinterpretasi seperti bar chart, line chart, dan lain-lain.
+Ketika ingin lebih dekat dengan sisi sains-nya, kita akan membuat visualisasi data yang akurat dan mudah diinterpretasi seperti bar chart, line chart, dan lain-lain.
 
-Ketika ingin lebih dekat dengan sisi seni-nya, kita akan membuat visualisasi yang "eyecatching" dengan tujuan utama untuk menarik minat pembaca.
+Ketika ingin lebih dekat dengan sisi seni-nya, kita akan membuat visualisasi data yang "eyecatching" dengan tujuan utama untuk menarik minat pembaca.
 
 > *"Bagaimana kita memvisualisasikan data, sama pentingnya dengan data itu sendiri." - Jonathan Schwabish*
 
-Hal penting dari visualisasi data yang harus kita perhatikan adalah kepada siapa yang akan membaca visualisasi data tersebut.
+Hal penting dari visualisasi data yang harus kita perhatikan adalah siapa yang akan membaca visualisasi data tersebut.
 
 Dalam kalangan akademis, visualisasi data yang akurat dan mudah diinterpretasi adalah hal yang lebih diutamakan dari pada sisi seninya.
 
