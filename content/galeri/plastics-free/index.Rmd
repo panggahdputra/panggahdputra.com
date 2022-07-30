@@ -9,7 +9,7 @@ tags:
   - visualisasi data
   - chart
 draft: no
-image: 'img/galeri/2021tidytuesday02.png'
+image: 'img/galeri/2021tidytuesday05.png'
 showonlyimage: no
 ---
 TidyTuesday Pekan 5 Tahun 2021
