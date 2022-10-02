@@ -257,4 +257,4 @@ Dari visualisasi di atas, dapat dipahami bahwa:
 <br>
 
 ###### Kesimpulan
-Dari ilustrasi pada Anscombe's Dataset di atas dapat disimpulkan bahwa visualisasi data adalah hal yang penting untuk dilakukan sebelum menganalisis hubungan antar variabel dalam suatu dataset karena perhitungan statistik deskriptif saja tidaklah cukup untuk menggambarkan keadaan dataset sesungguhnya.
+Dari ilustrasi pada Anscombe's Dataset di atas dapat disimpulkan bahwa visualisasi data adalah hal yang penting untuk dilakukan sebelum menganalisis suatu dataset karena perhitungan statistik deskriptif saja tidaklah cukup untuk menggambarkan keadaan dataset sesungguhnya.
