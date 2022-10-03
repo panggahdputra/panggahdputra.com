@@ -1,0 +1,17 @@
+---
+title: HBCU Enrollment
+author: Panggah D. Putra
+date: '2022-06-06'
+slug: []
+categories:
+  - chart
+tags:
+  - visualisasi data
+  - chart
+draft: no
+image: 'img/galeri/2021tidytuesday06.png'
+showonlyimage: no
+---
+TidyTuesday Pekan 6 Tahun 2021
+<!--more-->
+![](images/2021tidytuesday06.png)
