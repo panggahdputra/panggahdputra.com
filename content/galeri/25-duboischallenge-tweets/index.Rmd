@@ -1,5 +1,5 @@
 ---
-title: #DuboisChallenge Tweets
+title: '#DuboisChallenge Tweets'
 author: Panggah D. Putra
 date: '2021-06-15'
 slug: []
