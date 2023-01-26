@@ -12,9 +12,8 @@ tags:
 Buku yang bagus adalah buku yang dibaca sampai selesai.
 <!--more-->
 
-Tahun 2021 adalah tahun dimana saya beberapa kali khilaf membeli buku-buku di *amazon.com* dan *bookdepository.com*.
-
 ![](images/rekomendasi buku-1.jpeg)
+Tahun 2021 adalah tahun dimana saya beberapa kali khilaf membeli buku-buku di *amazon.com* dan *bookdepository.com*.
 
 Bermula pada awal April 2021, atas dasar ketertarikan dengan visualisasi data, saya khilaf membeli 2 buku sekaligus. **Better Data Visualisation**-nya Jonathan Schwabish di *amazon.com* dan **Storytelling with Data**-nya Cole Nussbaumer Knaflic di *bookdepository.com*.
 
@@ -32,6 +31,6 @@ Setelah beberapa bulan kembali ke jalan yang benar, bulan Oktober 2021 lagi-lagi
 
 > *Buku yang bagus adalah buku yang dibaca sampai selesai.*
 
-Dari buku-buku di atas, mana yang bagus dan *recommended*? Wah, saya belum punya kapasitas dan kompetensi untuk menilai kualitas suatu buku. Saya cuma bisa memberikan *statement* seperti kata orang-orang, "buku yang bagus adalah buku yang dibaca sampai selesai." Apa saja buku yang dibaca, jika dibaca sampai dengan selesai, maka buku itu bagus.
+Dari buku-buku di atas, mana yang bagus dan *recommended*? Seperti kata orang-orang, "buku yang bagus adalah buku yang dibaca sampai selesai." Apa saja buku yang dibaca, jika dibaca sampai dengan selesai, maka buku itu bagus.
 
 Jika anda ingin belajar visualisasi data, 2 buku pertama yang saya sarankan untuk anda baca adalah **Better Data Visualisation** dan **Storytelling with Data**.

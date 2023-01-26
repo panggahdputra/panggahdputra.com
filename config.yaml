@@ -7,7 +7,6 @@ googleAnalytics: '305620212'
 params:
   sidebarAbout:
     - Selamat datang di panggahdputra.com.
-    - Website pribadi ini berisi dokumentasi hasil saya belajar R, visualisasi data dengan R, R Markdown, blogdown, dan lain-lain.
   navlinks:
     - home: yes
       name: Galeri
